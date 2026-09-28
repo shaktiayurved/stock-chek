@@ -1,0 +1,6 @@
+# Files excluded from Vercel uploads (CLI deploys; git deploys use .gitignore)
+.git
+node_modules
+**/node_modules
+**/dist
+ncr-quick-stock-extension-v1.0.0.zip

@@ -1,0 +1,34 @@
+{
+  "name": "ncr-quick-stock-finder",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NCR Quick Stock Finder — Chrome extension + backend + web dashboard for recording mobile phone availability across Delhi NCR on Zepto and Swiggy Instamart.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=18.17"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev:api": "npm run dev -w apps/api",
+    "dev:dashboard": "npm run dev -w apps/dashboard",
+    "build:api": "npm run build -w apps/api",
+    "build:dashboard": "npm run build -w apps/dashboard",
+    "build:extension": "npm run build -w apps/extension",
+    "build:vercel": "node scripts/build-vercel.mjs",
+    "test:vercel": "node scripts/test-vercel-function.mjs",
+    "test": "node --import tsx --test packages/shared/tests/*.test.ts",
+    "icons": "node scripts/generate-icons.mjs",
+    "seed:sql": "tsx scripts/gen-seed-sql.ts",
+    "smoke": "node scripts/smoke.mjs",
+    "zip:extension": "bash scripts/zip-extension.sh"
+  },
+  "devDependencies": {
+    "esbuild": "^0.23.1",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.4"
+  }
+}

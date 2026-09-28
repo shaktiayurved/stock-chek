@@ -1,0 +1,87 @@
+╔════════════════════════════════════════════════════════════════════╗
+║        NCR QUICK STOCK FINDER — PURA PROJECT (v1.0.0)              ║
+║     Zepto + Swiggy Instamart · Delhi NCR · Chrome Extension        ║
+║              + API + Website + Supabase Database                   ║
+╚════════════════════════════════════════════════════════════════════╝
+
+Is zip me KUCH BHI missing nahi hai — poora source code, database SQL,
+documentation, aur ready-made Chrome extension build sab included hai.
+
+┌────────────────────────────────────────────────────────────────────┐
+│ ISME KYA-KYA HAI                                                   │
+└────────────────────────────────────────────────────────────────────┘
+  apps/extension/     → Chrome Extension (MV3) — SOURCE + READY BUILD
+                        • apps/extension/dist/ = turant load ho jata hai
+                        • dist/INSTALL.txt = install steps (Hinglish)
+  apps/api/           → REST API (Node.js + TypeScript + Express)
+  apps/dashboard/     → Website (React + Tailwind) — Vercel-ready
+  packages/shared/    → Exact variant matching engine (+ tests)
+  supabase/migrations → Database SQL (4 files — schema, security,
+                        functions, 40 Delhi NCR locations)
+  docs/               → VERCEL.md (deploy guide), DEPLOYMENT.md,
+                        ARCHITECTURE.md, ENVIRONMENT.md, ACCEPTANCE_TEST.md
+  scripts/            → Build/test/icon tools
+  start-api-windows.bat / start-api-mac-linux.sh → one-click local API
+  ncr-quick-stock-extension-v1.0.0.zip → extension ka alag zip
+  vercel.json          → Vercel deploy config (website + API ek saath)
+
+┌────────────────────────────────────────────────────────────────────┐
+│ OPTION 1 — WEBSITE VERCEL PAR LAGANA (sabse aasan, 3 minute)       │
+└────────────────────────────────────────────────────────────────────┘
+  1. Is folder ko GitHub par push karein (sab files saath me)
+  2. https://vercel.com/new kholein → repo import karein
+  3. Root Directory: ./ (kuch mat chhuein) → DEPLOY dabayein
+  4. Live! → https://aapka-project.vercel.app
+     Login: "Sign in as demo user (MOCK DATA)" button
+  → Puri detail: docs/VERCEL.md
+
+┌────────────────────────────────────────────────────────────────────┐
+│ OPTION 2 — CHROME EXTENSION TURANT ADD KARNA                       │
+└────────────────────────────────────────────────────────────────────┘
+  1. chrome://extensions kholein → Developer mode ON karein
+  2. "Load unpacked" → apps/extension/dist folder select karein
+  3. Extension ready! (Zepto/Instamart pages par CAPTURE STOCK button)
+  → Puri detail: apps/extension/dist/INSTALL.txt
+
+┌────────────────────────────────────────────────────────────────────┐
+│ OPTION 3 — APNE COMPUTER PAR CHALANA (local testing)               │
+└────────────────────────────────────────────────────────────────────┘
+  1. Node.js install karein: https://nodejs.org (LTS version)
+  2. Windows  : start-api-windows.bat par double-click karein
+     Mac/Linux: terminal me  ./start-api-mac-linux.sh
+  3. API chalu: http://localhost:8787 (MOCK demo data)
+  4. Website  : npm run dev:dashboard → http://localhost:5173
+  5. Extension Options me "Use demo login (MOCK)" dabayein
+
+┌────────────────────────────────────────────────────────────────────┐
+│ REAL DATA KE LIYE (production)                                     │
+└────────────────────────────────────────────────────────────────────┘
+  Mock mode sirf demo hai. Permanent real data ke liye:
+  1. https://supabase.com par free project banayein
+  2. supabase/migrations/ ke 4 SQL files SQL Editor me RUN karein
+  3. User banayein + admin banayein (SQL docs/DEPLOYMENT.md me hai)
+  4. Vercel env variables: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY,
+     MOCK_MODE=false, ALLOWED_ORIGINS, VITE_SUPABASE_URL,
+     VITE_SUPABASE_ANON_KEY  → Redeploy
+  → Step-by-step: docs/VERCEL.md (Hinglish) + docs/DEPLOYMENT.md
+
+┌────────────────────────────────────────────────────────────────────┐
+│ TESTS (sab pass ho chuke hain)                                     │
+└────────────────────────────────────────────────────────────────────┘
+  npm test              → 21/21 exact-variant matching checks
+  npm run smoke         → 19/19 acceptance checks (spec §58)
+  npm run test:vercel   → wahi 19 checks Vercel bundle par
+
+  Guarantee: "Realme P4x 5G 6GB/128GB" kabhi 8/128, 6/256 ya 4G se
+  match NAHI hoga. Available Noida + Out-of-stock Delhi alag-alag
+  records rahenge. Never-checked location = UNKNOWN (assumption nahi).
+
+┌────────────────────────────────────────────────────────────────────┐
+│ COMPLIANCE (important)                                             │
+└────────────────────────────────────────────────────────────────────┘
+  • Sirf page par visible data / authorized API data record hota hai
+  • No CAPTCHA bypass, no auth bypass, no cookie/token theft
+  • No hidden API scraping, no automated request floods
+  • Har capture user ka action hai — background me kuch nahi hota
+
+Questions? README.md aur docs/ folder me sab kuch detail me hai.

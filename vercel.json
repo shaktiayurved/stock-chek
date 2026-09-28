@@ -1,0 +1,15 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "npm install --no-audit --no-fund",
+  "buildCommand": "npm run build:vercel",
+  "outputDirectory": "apps/dashboard/dist",
+  "functions": {
+    "api/**/*.cjs": {
+      "maxDuration": 15
+    }
+  },
+  "rewrites": [
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
+  ],
+  "regions": ["bom1"]
+}
